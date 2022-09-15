@@ -10,7 +10,7 @@ export class DataStore {
   }
 
    @action apiCall =  () => { 
-     axios.get('https://api.publicapis.org/entries')
+     axios.get('https://api.agify.io?name=meelad')
         .then((response:any) => {
             this.responseData = response       
         })

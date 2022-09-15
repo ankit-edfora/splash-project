@@ -27,20 +27,20 @@ export default class SwitchScreen extends React.Component<IProps,IState> {
      component : <SplashScreen />
     }
    }
-componentDidMount(){
+    componentDidMount(){
 
-  this.timeoutHandle = setTimeout(()=>{
-       this.setState({ component: <LoginScreen navigation={this.props.navigation}/> })
-  }, 2000);
-}
+    this.timeoutHandle = setTimeout(()=>{
+        this.setState({ component: <LoginScreen navigation={this.props.navigation}/> })
+    }, 2000);
+    }
 
-componentWillUnmount(){
-  clearTimeout(this.timeoutHandle); 
-}
+    componentWillUnmount(){
+    clearTimeout(this.timeoutHandle); 
+    }
 
-render() {
-    return (
-      this.state.component
-    );
-  }
+    render() {
+        return (
+        this.state.component
+        );
+    }
 };

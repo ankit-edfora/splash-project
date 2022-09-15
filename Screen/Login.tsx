@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   StyleSheet,
   Text,
@@ -12,13 +12,57 @@ import {
   TouchableHighlight,
 } from "react-native";
 
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { Int32 } from "react-native/Libraries/Types/CodegenTypes";
+
 export default function Login({navigation}: {navigation: any}) {
   const [emailOrPhone, setEmailOrPhone] = useState("");
   const [password, setPassword] = useState("");
+  var flag: Int32 = 0
 
+
+  const saveData = async (emailOrPhone:string) => {
+    try {
+      await AsyncStorage.setItem(emailOrPhone, password)
+    } catch (e) {
+        Alert.alert("Unable to save user details")
+    }
+  }
+  const getData = async (emailOrPhone:string) => {
+    //console.log(emailOrPhone)
+    try {
+      let password = await AsyncStorage.getItem(emailOrPhone);
+      //console.log("password--->",listlayana)
+      if(password == null) {
+        return "User is not registered!";
+      }
+      return password;
+    } catch (e) {
+        return "User is not registered!";
+    }
+  };
+
+  const onPressLogin = async () => {
+
+    if(password == "") {
+        Alert.alert("Password cannot be empty")
+    } 
+    valiDate(); 
+    if(flag == 1) 
+    { 
+        await saveData(emailOrPhone); 
+        navigation.navigate('Dashboard');
+    }
+  }
+
+  const onPressForgotPassword = async () => {
+    const password = await getData(emailOrPhone); 
+    Alert.alert(password)
+  }
+  
   function valiDate() {
     validate.then(function(val){
-       setEmailOrPhone(emailOrPhone);
+        flag = 1
       }
     ).catch(function(err){
       Alert.alert("Invalid credentials!!");
@@ -35,6 +79,7 @@ export default function Login({navigation}: {navigation: any}) {
       reject("Err");
     }
   });
+
   return (
     <View style={styles.container}>
 
@@ -57,11 +102,11 @@ export default function Login({navigation}: {navigation: any}) {
         />
       </View>
  
-      <TouchableOpacity>
+      <TouchableOpacity onPress={onPressForgotPassword}>
         <Text style={styles.forgot_button}>Forgot Password?</Text>
       </TouchableOpacity>
  
-      <TouchableOpacity style={styles.loginBtn} onPress={() => {valiDate(); navigation.navigate('Dashboard');}}> 
+      <TouchableOpacity style={styles.loginBtn} onPress={onPressLogin}> 
         <Text>LOGIN</Text>
       </TouchableOpacity>
     </View>
