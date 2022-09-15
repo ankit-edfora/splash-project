@@ -9,8 +9,8 @@ export class DataStore {
     makeObservable(this)
   }
 
-   @action apiCall =  () => { 
-     axios.get('https://api.agify.io?name=meelad')
+   @action apiCall =  (url:string) => { 
+     axios.get(url)
         .then((response:any) => {
             this.responseData = response       
         })

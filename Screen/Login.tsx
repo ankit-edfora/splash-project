@@ -4,20 +4,23 @@ import {
   Text,
   View,
   Image,
-  TextInput,
   Button,
   TouchableOpacity,
   Alert,
   RecyclerViewBackedScrollView,
   TouchableHighlight,
+  Switch,
 } from "react-native";
+import { TextInput } from "react-native-paper";
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Int32 } from "react-native/Libraries/Types/CodegenTypes";
 
+
 export default function Login({navigation}: {navigation: any}) {
   const [emailOrPhone, setEmailOrPhone] = useState("");
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(true);
   var flag: Int32 = 0
 
 
@@ -79,7 +82,7 @@ export default function Login({navigation}: {navigation: any}) {
       reject("Err");
     }
   });
-
+  
   return (
     <View style={styles.container}>
 
@@ -97,10 +100,12 @@ export default function Login({navigation}: {navigation: any}) {
           style={styles.TextInput}
           placeholder="Password."
           placeholderTextColor="#003f5c"
-          secureTextEntry={true}
+          secureTextEntry={showPassword}
+          right={<TextInput.Icon name={showPassword ? "eye" : "eye-off"} onPress={() => setShowPassword(!showPassword)} />}
           onChangeText={(password) => setPassword(password)}
         />
       </View>
+     
  
       <TouchableOpacity onPress={onPressForgotPassword}>
         <Text style={styles.forgot_button}>Forgot Password?</Text>
