@@ -53,8 +53,16 @@ export default function Login({navigation}: {navigation: any}) {
     valiDate(); 
     if(flag == 1) 
     { 
+        let storedPassword = await AsyncStorage.getItem(emailOrPhone);
+        if(storedPassword == "") {
         await saveData(emailOrPhone); 
         navigation.navigate('Dashboard');
+        } else if(storedPassword == password) {
+            navigation.navigate('Dashboard');
+        } else {
+            Alert.alert("Incorrect Password!");
+        }
+        
     }
   }
 
@@ -143,7 +151,7 @@ const styles = StyleSheet.create({
   TextInput: {
     height: 50,
     flex: 1,
-    padding: 10,
+    padding: 7,
     marginLeft: 20,
   },
  
