@@ -41,14 +41,14 @@ export default class Details extends Component<IProps,IState> {
 
  fetchData = () => {
  
-    const {page} = this.state;
     //console.log(page)
-    console.log("before adding page url--->", this.url);
-    this.url = this.url + page.toString()
+    const URL = this.url;
+    console.log("before adding page url--->", URL);
+   
     //console.log("after adding page url--->",this.url);
     this.setState({ loading: true });
    // console.log("Before json")
-    dataStore.apiCall(this.url)
+    dataStore.apiCall(URL)
     
     const arrayData = [...this.state.data, dataStore.responseData]
     //console.log("arrayData-->", arrayData)

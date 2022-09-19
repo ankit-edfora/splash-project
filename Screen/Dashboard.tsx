@@ -11,7 +11,6 @@ interface IProps {
   }
   interface IState {
     component?:any
-    url:string
   }
  
 @observer
@@ -20,13 +19,10 @@ export default class Dashboard extends Component<IProps,IState> {
     url: string
     constructor(props:IProps) {
         super(props)
-        this.state = {
-            url:""
-        }
     }
 
-     setUrl() {
-        this.url = "https://hn.algolia.com/api/v1/search?query=startups&page=";
+     setUrl(url:string) {
+        this.url = url;
         //console.log("URL:",this.state.url)
         this.props.navigation.navigate('Details', {
             url: this.url
@@ -38,10 +34,31 @@ export default class Dashboard extends Component<IProps,IState> {
             <SafeAreaView  style={{ flex: 1 }}>
          
             <Pressable 
-            onPress = {() => { this.setUrl(); }}
+            onPress = {() => { this.setUrl("https://hn.algolia.com/api/v1/search?query=startups&page=1"); }}
             >
 
-            <Text>Link1</Text>
+            <Text>About startups</Text>
+            </Pressable>
+
+            <Pressable 
+            onPress = {() => { this.setUrl("https://catfact.ninja/fact"); }}
+            >
+
+            <Text>Get random cat facts via text message every day.</Text>
+            </Pressable>
+
+            <Pressable 
+            onPress = {() => { this.setUrl("https://api.coindesk.com/v1/bpi/currentprice.json"); }}
+            >
+
+            <Text>View the Bitcoin Price Index (BPI) in real-time.</Text>
+            </Pressable>
+
+            <Pressable 
+            onPress = {() => { this.setUrl("https://dog.ceo/api/breeds/image/random"); }}
+            >
+
+            <Text>Cheer yourself up with random dog images..</Text>
             </Pressable>
 
 
