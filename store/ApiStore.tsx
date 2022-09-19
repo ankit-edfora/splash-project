@@ -3,7 +3,7 @@ import axios from 'axios';
 
 export class DataStore {
 
-  @observable responseData : any 
+  @observable responseData : any
   constructor() {
     this.responseData = undefined
     makeObservable(this)

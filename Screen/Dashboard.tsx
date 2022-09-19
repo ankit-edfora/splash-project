@@ -3,6 +3,7 @@ import {Text, ScrollView, View, Button, TouchableOpacity, StyleSheet, FlatList, 
 import { observer } from 'mobx-react';
 import {dataStore} from '../store/ApiStore';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { useLinkProps } from '@react-navigation/native';
 
 
 interface IProps {
@@ -10,56 +11,37 @@ interface IProps {
   }
   interface IState {
     component?:any
+    url:string
   }
-  const DATA = [
-    {
-      title: dataStore.responseData,
-    },
-    
-  ];
-
-  const Item = ({ title }) => (
-    <View>
-      <Text>{title}</Text>
-    </View>
-  );
-
-
+ 
 @observer
 export default class Dashboard extends Component<IProps,IState> {
 
-    data: any
-    reactHandler: any
+    url: string
     constructor(props:IProps) {
         super(props)
-        this.data = {}
+        this.state = {
+            url:""
+        }
     }
 
-    renderItem = ({ item }) => (
-        <Item title={item.title} />
-      );
-
-    fetchData(url:string) {
-        dataStore.apiCall(url)
+     setUrl() {
+        this.url = "https://hn.algolia.com/api/v1/search?query=startups&page=";
+        //console.log("URL:",this.state.url)
+        this.props.navigation.navigate('Details', {
+            url: this.url
+        })
     }
-    
-
     render() {
 
         return (
             <SafeAreaView  style={{ flex: 1 }}>
          
             <Pressable 
-            onPress = {() => {this.fetchData("https://api.agify.io?name=meelad"); this.props.navigation.navigate('Details')}}
+            onPress = {() => { this.setUrl(); }}
             >
 
-            <Text>https://api.agify.io?name=meelad </Text>
-            </Pressable>
-
-            <Pressable 
-            onPress = {() => {this.fetchData("https://api.agify.io?name=meelad"); this.props.navigation.navigate('Details')}}
-            >
-            <Text>https://api.agify.io?name=meelad </Text>
+            <Text>Link1</Text>
             </Pressable>
 
 
