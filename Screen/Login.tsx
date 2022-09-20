@@ -3,16 +3,10 @@ import {
   StyleSheet,
   Text,
   View,
-  Image,
-  Button,
   TouchableOpacity,
   Alert,
-  RecyclerViewBackedScrollView,
-  TouchableHighlight,
-  Switch,
 } from "react-native";
 import { TextInput } from "react-native-paper";
-
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Int32 } from "react-native/Libraries/Types/CodegenTypes";
 
@@ -149,6 +143,7 @@ const styles = StyleSheet.create({
   },
  
   TextInput: {
+    backgroundColor: "#FFC0CB",
     height: 50,
     flex: 1,
     padding: 7,
@@ -156,7 +151,7 @@ const styles = StyleSheet.create({
   },
  
   forgot_button: {
-    height: 30,
+    height: 20,
     marginBottom: 30,
   },
  

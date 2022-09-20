@@ -1,14 +1,6 @@
-import React, {useState, useEffect} from 'react';
-import {Text} from 'react-native';
+import React from 'react';
 import LoginScreen from './Login';
 import SplashScreen from './SplashScreen'
-import {
-  ActivityIndicator,
-  View,
-  StyleSheet,
-  Image
-} from 'react-native';
-
 interface IProps {
   navigation?:any
 }
@@ -35,7 +27,7 @@ export default class SwitchScreen extends React.Component<IProps,IState> {
     }
 
     componentWillUnmount(){
-    clearTimeout(this.timeoutHandle); 
+        clearTimeout(this.timeoutHandle); 
     }
 
     render() {

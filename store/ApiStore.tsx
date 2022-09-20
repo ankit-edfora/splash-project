@@ -1,4 +1,4 @@
-import { observable, action, makeObservable, computed, makeAutoObservable } from 'mobx'
+import { observable, action, makeObservable } from 'mobx'
 import axios from 'axios';
 
 export class DataStore {
