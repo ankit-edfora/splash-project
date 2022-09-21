@@ -3,7 +3,8 @@ import {Text, View, StyleSheet, FlatList, ActivityIndicator} from 'react-native'
 import { observer } from 'mobx-react';
 import {dataStore} from '../store/ApiStore';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { colors, dimens } from '../config/ConfigStyle';
+import { styles } from '../styles/Styles';
+
 const _ = require('lodash')
 
   interface IProps {
@@ -132,12 +133,5 @@ export default class Details extends Component<IProps,IState> {
     }
 };
 
-const styles = StyleSheet.create({
-    renderFooter: {
-        paddingVertical: dimens.twenty,
-        borderTopWidth: 1,
-        borderColor: colors.grey
-    }
-  });
 
 

@@ -9,7 +9,7 @@ import {
 import { TextInput } from "react-native-paper";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Int32 } from "react-native/Libraries/Types/CodegenTypes";
-import { colors, dimens } from "../config/ConfigStyle";
+import { styles } from "../styles/Styles";
 
 
 export default function Login({navigation}: {navigation: any}) {
@@ -120,44 +120,3 @@ export default function Login({navigation}: {navigation: any}) {
     </View>
   );
 }
- 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-  },
-
-  inputView: {
-    backgroundColor: colors.pink,
-    borderRadius: dimens.thirty,
-    width: "70%",
-    height: dimens.forty,
-    marginBottom: dimens.twenty,
- 
-    alignItems: "center",
-  },
- 
-  TextInput: {
-    backgroundColor: colors.pink,
-    height: dimens.fifty,
-    flex: 1,
-    padding: 7,
-    marginLeft: dimens.twenty,
-  },
- 
-  forgot_button: {
-    height: dimens.twenty,
-    marginBottom: dimens.thirty,
-  },
- 
-  loginBtn: {
-    width: "80%",
-    borderRadius: dimens.twenty,
-    height: dimens.fifty,
-    alignItems: "center",
-    justifyContent: "center",
-    marginTop: dimens.forty,
-    backgroundColor: colors.deepPink,
-  },
-});

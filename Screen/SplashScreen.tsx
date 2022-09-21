@@ -1,7 +1,7 @@
 import React from 'react';
 import {Text, StyleSheet} from 'react-native';
-
 import {View} from 'react-native';
+import {styles} from '../styles/Styles';
 
 export default class SplashScreen extends React.Component {
 render() {
@@ -13,11 +13,4 @@ render() {
   }
 };
 
-const styles = StyleSheet.create({
-    renderSplash: { 
-        flex: 1, 
-        alignItems: 'center', 
-        justifyContent: 'center' 
-    }
-  });
 
