@@ -2,11 +2,10 @@ import React, {Component} from 'react';
 import {Text, 
     TouchableOpacity, 
     StyleSheet, 
-    Pressable, 
     FlatList, 
     View, 
     TouchableWithoutFeedback, 
-    ActivityIndicator} from 'react-native';
+    } from 'react-native';
 import { observer } from 'mobx-react';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import {DATA} from '../common/Constant';
