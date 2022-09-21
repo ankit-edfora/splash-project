@@ -46,7 +46,7 @@ export default class Dashboard extends Component<IProps, IState> {
     }
 
     navigateToLogin = () => {
-            this.props.navigation.navigate('Login');
+        this.props.navigation.navigate('Login');
     }
 
 

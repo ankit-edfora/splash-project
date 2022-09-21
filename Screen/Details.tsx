@@ -13,10 +13,9 @@ interface IProps {
 }
 interface IState {
     loading: boolean,
-    data: any[],
+    data: any,
     page: number,
     refreshing: boolean,
-    siteTitle: ''
 }
 
 
@@ -34,10 +33,9 @@ export default class Details extends Component<IProps, IState> {
     }
     state: IState = {
         loading: false,
-        data: [],
+        data: '',
         page: 1,
         refreshing: false,
-        siteTitle: ''
     }
 
     fetchData = () => {
@@ -50,21 +48,14 @@ export default class Details extends Component<IProps, IState> {
         this.setState({ loading: true });
         // console.log("Before json")
         dataStore.apiCall(URL)
-
-        const arrayData = [...this.state.data, dataStore.responseData]
-        //console.log("arrayData-->", arrayData)
+        //console.log("arrayData-->", dataStore.responseData)
         this.setState({
-            data: arrayData,
+            data: dataStore.responseData,
             loading: false,
             refreshing: false
         });
     };
 
-    DATA = [
-        {
-            title: JSON.stringify(this.state.data)
-        },
-    ];
     componentDidMount() {
         //console.log("Inside component did mount");
         this.fetchData();
@@ -74,7 +65,9 @@ export default class Details extends Component<IProps, IState> {
         //console.log("inside render footer")
         return (
             <View style={styles.renderFooter}>
-                <ActivityIndicator animating size="large" />
+                <Text>
+                    {JSON.stringify(dataStore.responseData)}
+                </Text>
             </View>
         );
     };
@@ -93,7 +86,7 @@ export default class Details extends Component<IProps, IState> {
     };
 
     handleLoadMore = () => {
-        //console.log("inside handle load more, page no.-->", this.state.page)
+        console.log("inside handle load more, page no.-->", this.state.page)
 
         this.setState(
             {
@@ -105,22 +98,22 @@ export default class Details extends Component<IProps, IState> {
             }
         );
     };
-
-
-    Item = ({ title }) => (
-        <View>
-            <Text>{JSON.stringify(title)}</Text>
-        </View>
-    );
+    DATA = [
+        {
+            title: JSON.stringify(dataStore.responseData)
+        },
+    ]
     render() {
 
         const renderItem = ({ item }) => (
-            <this.Item title={item} />
+            <View>
+                <Text>{item.title}</Text>
+            </View>
         );
         return (
             <SafeAreaView>
                 <FlatList
-                    data={this.state.data}
+                    data={this.DATA}
                     renderItem={renderItem}
                     ListFooterComponent={this.renderFooter}
                     onRefresh={this.handleRefresh}
