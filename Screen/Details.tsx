@@ -86,7 +86,7 @@ export default class Details extends Component<IProps, IState> {
     };
 
     handleLoadMore = () => {
-        console.log("inside handle load more, page no.-->", this.state.page)
+        //console.log("inside handle load more, page no.-->", this.state.page)
 
         this.setState(
             {
