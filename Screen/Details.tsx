@@ -116,7 +116,7 @@ export default class Details extends Component<IProps,IState> {
             <this.Item title={item} />
         );
         return (
-            <SafeAreaView style={{flex:1}}>
+            <SafeAreaView>
             <FlatList
             data={this.state.data}
             renderItem={renderItem}
@@ -144,7 +144,6 @@ const styles = StyleSheet.create({
         borderTopWidth: 1,
         borderColor: "#CED0CE"
     }
-
   });
 
 
