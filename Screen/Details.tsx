@@ -42,7 +42,7 @@ export default class Details extends Component<IProps,IState> {
     
         //console.log(page)
         const URL = this.url;
-        console.log("before adding page url--->", URL);
+        //console.log("before adding page url--->", URL);
     
         //console.log("after adding page url--->",this.url);
         this.setState({ loading: true });
