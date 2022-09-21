@@ -1,15 +1,23 @@
 import React from 'react';
-import {Text} from 'react-native';
+import {Text, StyleSheet} from 'react-native';
 
 import {View} from 'react-native';
 
 export default class SplashScreen extends React.Component {
 render() {
     return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <View style={styles.renderSplash}>
         <Text>Splash Screen</Text>
       </View>
     );
   }
 };
+
+const styles = StyleSheet.create({
+    renderSplash: { 
+        flex: 1, 
+        alignItems: 'center', 
+        justifyContent: 'center' 
+    }
+  });
 

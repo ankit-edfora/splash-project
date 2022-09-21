@@ -132,13 +132,6 @@ export default class Details extends Component<IProps,IState> {
 };
 
 const styles = StyleSheet.create({
-    renderHeader: { 
-        alignSelf: "center", 
-        fontWeight: "bold", 
-        fontSize: 20, 
-        marginBottom: 10
-    },
-
     renderFooter: {
         paddingVertical: 20,
         borderTopWidth: 1,
