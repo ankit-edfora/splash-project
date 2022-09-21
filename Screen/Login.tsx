@@ -9,6 +9,7 @@ import {
 import { TextInput } from "react-native-paper";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Int32 } from "react-native/Libraries/Types/CodegenTypes";
+import { colors, dimens } from "../config/ConfigStyle";
 
 
 export default function Login({navigation}: {navigation: any}) {
@@ -123,45 +124,40 @@ export default function Login({navigation}: {navigation: any}) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
   },
- 
-  image: {
-    marginBottom: 40,
-  },
- 
+
   inputView: {
-    backgroundColor: "#FFC0CB",
-    borderRadius: 30,
+    backgroundColor: colors.pink,
+    borderRadius: dimens.thirty,
     width: "70%",
-    height: 45,
-    marginBottom: 20,
+    height: dimens.forty,
+    marginBottom: dimens.twenty,
  
     alignItems: "center",
   },
  
   TextInput: {
-    backgroundColor: "#FFC0CB",
-    height: 50,
+    backgroundColor: colors.pink,
+    height: dimens.fifty,
     flex: 1,
     padding: 7,
-    marginLeft: 20,
+    marginLeft: dimens.twenty,
   },
  
   forgot_button: {
-    height: 20,
-    marginBottom: 30,
+    height: dimens.twenty,
+    marginBottom: dimens.thirty,
   },
  
   loginBtn: {
     width: "80%",
-    borderRadius: 25,
-    height: 50,
+    borderRadius: dimens.twenty,
+    height: dimens.fifty,
     alignItems: "center",
     justifyContent: "center",
-    marginTop: 40,
-    backgroundColor: "#FF1493",
+    marginTop: dimens.forty,
+    backgroundColor: colors.deepPink,
   },
 });

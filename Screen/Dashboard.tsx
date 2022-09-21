@@ -9,6 +9,7 @@ import {Text,
 import { observer } from 'mobx-react';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import {DATA} from '../common/Constant';
+import {colors, dimens} from '../config/ConfigStyle';
 
 
 interface IProps {
@@ -190,7 +191,7 @@ export default class Dashboard extends Component<IProps,IState> {
         //console.log("inside render footer")
         return (
           <View style={styles.renderFooter}>
-            <TouchableOpacity style={styles.loginBtn} onPress={this.navigateToLogin}> 
+            <TouchableOpacity style={styles.logoutBtn} onPress={this.navigateToLogin}> 
             <Text>LOGOUT</Text>
             </TouchableOpacity>
           </View>
@@ -242,26 +243,26 @@ export default class Dashboard extends Component<IProps,IState> {
 };
 
 const styles = StyleSheet.create({
-    loginBtn: {
+    logoutBtn: {
       width: "100%",
-      borderRadius: 25,
-      height: 50,
+      borderRadius: dimens.twenty,
+      height: dimens.fifty,
       alignItems: "center",
       justifyContent: "center",
       marginTop: 500,
-      backgroundColor: "#FF1493",
+      backgroundColor: colors.deepPink
     },
     renderHeader: { 
         alignSelf: "center", 
         fontWeight: "bold", 
-        fontSize: 20, 
-        marginBottom: 10
+        fontSize: dimens.twenty, 
+        marginBottom: dimens.ten
     },
 
     renderFooter: {
-        paddingVertical: 20,
+        paddingVertical: dimens.twenty,
         borderTopWidth: 1,
-        borderColor: "#CED0CE"
+        borderColor: colors.grey,
     },
 
     itemContainer: {
