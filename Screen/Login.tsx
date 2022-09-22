@@ -1,11 +1,9 @@
 import React, { useState } from "react";
 import {
-    StyleSheet,
     Text,
     View,
     TouchableOpacity,
     Alert,
-    Switch,
     StatusBar
 } from "react-native";
 import { TextInput } from "react-native-paper";

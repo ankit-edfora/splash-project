@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, StyleSheet, FlatList, ActivityIndicator } from 'react-native';
+import { Text, View, FlatList} from 'react-native';
 import { observer } from 'mobx-react';
 import { dataStore } from '../store/ApiStore';
 import { SafeAreaView } from 'react-native-safe-area-context';

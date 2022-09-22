@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import {
     Text,
     TouchableOpacity,
-    StyleSheet,
     FlatList,
     View,
     TouchableWithoutFeedback,
