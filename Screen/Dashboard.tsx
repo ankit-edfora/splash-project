@@ -84,7 +84,7 @@ export default class Dashboard extends Component<IProps, IState> {
 
     render() {
         const renderItem = ({ item }) => (
-            <View>
+            <View style = {styles.renderFlatList}>
                 <TouchableWithoutFeedback
                     onPress={() => { this.navigateToDetails(item.url); }}
                 >

@@ -85,6 +85,12 @@ export default function Login({ navigation }: { navigation: any }) {
         }
     });
 
+    const showEye = () => {
+        return (
+            <TextInput.Icon name={showPassword ? "eye" : "eye-off"} 
+            onPress={() => setShowPassword(!showPassword)} />
+        )
+    }
     return (
         <View style={styles.container}>
 
@@ -103,7 +109,7 @@ export default function Login({ navigation }: { navigation: any }) {
                     placeholder="Password."
                     placeholderTextColor="#003f5c"
                     secureTextEntry={showPassword}
-                    right={<TextInput.Icon name={showPassword ? "eye" : "eye-off"} onPress={() => setShowPassword(!showPassword)} />}
+                    right={showEye()}
                     onChangeText={(password) => setPassword(password)}
                 />
             </View>

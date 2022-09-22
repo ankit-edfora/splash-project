@@ -73,6 +73,10 @@ export const styles = StyleSheet.create({
         flex: 1, 
         alignItems: 'center', 
         justifyContent: 'center' 
-    }
+    },
+    renderFlatList: {
+        borderWidth: 1,
+        cursor: 'pointer'
+    },
 });
 
