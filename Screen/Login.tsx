@@ -5,6 +5,8 @@ import {
     View,
     TouchableOpacity,
     Alert,
+    Switch,
+    StatusBar
 } from "react-native";
 import { TextInput } from "react-native-paper";
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -87,13 +89,17 @@ export default function Login({ navigation }: { navigation: any }) {
 
     const showEye = () => {
         return (
-            <TextInput.Icon name={showPassword ? "eye" : "eye-off"} 
-            onPress={() => setShowPassword(!showPassword)} />
+            <TextInput.Icon icon={showPassword ? "eye" : "eye-off"}
+                onPress={() => setShowPassword(!showPassword)} />
         )
     }
     return (
         <View style={styles.container}>
-
+            <StatusBar backgroundColor='#009387' barStyle="light-content" />
+            <View style={styles.header}>
+                <Text style={styles.text_header}>Welcome!</Text>    
+            </View>
+            <View style = {styles.inputInfo}>
             <View style={styles.inputView}>
                 <TextInput
                     style={styles.TextInput}
@@ -113,7 +119,7 @@ export default function Login({ navigation }: { navigation: any }) {
                     onChangeText={(password) => setPassword(password)}
                 />
             </View>
-
+            </View>
 
             <TouchableOpacity onPress={onPressForgotPassword}>
                 <Text style={styles.forgot_button}>Forgot Password?</Text>

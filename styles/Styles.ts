@@ -33,50 +33,75 @@ export const styles = StyleSheet.create({
     },
     container: {
         flex: 1,
-        alignItems: "center",
-        justifyContent: "center",
-      },
-    
-      inputView: {
+        backgroundColor: '#009387',
+        textAlign: 'center'
+    },
+    header: {
+        paddingHorizontal: dimens.twenty,
+        paddingBottom: dimens.fifty,
+        alignItems: 'center'
+    },
+
+    text_header: {
+        color: '#fff',
+        fontWeight: 'bold',
+        fontSize: dimens.thirty,
+        alignItems: 'center',
+        marginTop: dimens.forty
+    },
+
+    footer: {
+        flex: 3,
+        backgroundColor: '#fff',
+        borderTopLeftRadius: dimens.thirty,
+        borderTopRightRadius: dimens.thirty,
+        paddingHorizontal: dimens.twenty,
+        paddingVertical: dimens.thirty
+    },
+
+    inputView: {
         backgroundColor: colors.pink,
         borderRadius: dimens.thirty,
-        width: "70%",
+        width: "100%",
         height: dimens.forty,
         marginBottom: dimens.twenty,
-     
-        alignItems: "center",
-      },
-     
-      TextInput: {
+        alignItems: 'center',
+    },
+    inputInfo: {
+        marginTop: dimens.eighty
+    },
+    TextInput: {
         backgroundColor: colors.pink,
         height: dimens.fifty,
         flex: 1,
-        padding: 7,
+        padding: 4,
         marginLeft: dimens.twenty,
-      },
-     
-      forgot_button: {
+
+    },
+
+    forgot_button: {
         height: dimens.twenty,
         marginBottom: dimens.thirty,
-      },
-     
-      loginBtn: {
-        width: "80%",
+        textAlign: 'center'
+    },
+
+    loginBtn: {
+        width: "100%",
         borderRadius: dimens.twenty,
         height: dimens.fifty,
         alignItems: "center",
         justifyContent: "center",
-        marginTop: dimens.forty,
         backgroundColor: colors.deepPink,
-      },
-      renderSplash: { 
-        flex: 1, 
-        alignItems: 'center', 
-        justifyContent: 'center' 
+        position: 'absolute',
+        bottom: dimens.ten
+    },
+    renderSplash: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center'
     },
     renderFlatList: {
         borderWidth: 1,
-        cursor: 'pointer'
     },
 });
 
