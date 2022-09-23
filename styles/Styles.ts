@@ -82,7 +82,7 @@ export const styles = StyleSheet.create({
 
     errorMsg: {
         color: "red",
-        marginBottom: 20
+        marginBottom: dimens.twenty
     },
 
     forgot_button: {
@@ -108,6 +108,11 @@ export const styles = StyleSheet.create({
     },
     renderFlatList: {
         borderWidth: 1,
+        marginBottom: dimens.ten,
+        borderRadius: dimens.ten,
+        marginLeft: dimens.ten,
+        marginRight: dimens.ten,
+        paddingLeft: dimens.ten
     },
 });
 
