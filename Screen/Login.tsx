@@ -16,6 +16,8 @@ export default function Login({ navigation }: { navigation: any }) {
     const [emailOrPhone, setEmailOrPhone] = useState("");
     const [password, setPassword] = useState("");
     const [showPassword, setShowPassword] = useState(true);
+    const [emailBorderColor, setEmailBorderColor] = useState("white");
+    const [passwordBorderColor, setPasswordBorderColor] = useState("white");
     var flag: Int32 = 0
 
 
@@ -23,7 +25,7 @@ export default function Login({ navigation }: { navigation: any }) {
         try {
             await AsyncStorage.setItem(emailOrPhone, password)
         } catch (e) {
-            Alert.alert("Unable to save user details")
+            Alert.alert("Unable to save data")
         }
     }
     const getData = async (emailOrPhone: string) => {
@@ -31,11 +33,14 @@ export default function Login({ navigation }: { navigation: any }) {
         try {
             let password = await AsyncStorage.getItem(emailOrPhone);
             //console.log("password--->",listlayana)
+            setPasswordBorderColor("white")
             if (password == null) {
+                setPasswordBorderColor("red")
                 return "User is not registered!";
             }
             return password;
         } catch (e) {
+            setPasswordBorderColor("red")
             return "User is not registered!";
         }
     };
@@ -43,7 +48,7 @@ export default function Login({ navigation }: { navigation: any }) {
     const onPressLogin = async () => {
 
         if (password == "") {
-            Alert.alert("Password cannot be empty")
+            setPasswordBorderColor("red")
         }
         valiDate();
         if (flag == 1) {
@@ -51,10 +56,12 @@ export default function Login({ navigation }: { navigation: any }) {
             if (storedPassword == "") {
                 await saveData(emailOrPhone);
                 navigation.navigate('Dashboard');
+                setPasswordBorderColor("white")
             } else if (storedPassword == password) {
                 navigation.navigate('Dashboard');
+                setPasswordBorderColor("white")
             } else {
-                Alert.alert("Incorrect Password!");
+                setPasswordBorderColor("red")
             }
 
         }
@@ -67,10 +74,11 @@ export default function Login({ navigation }: { navigation: any }) {
 
     function valiDate() {
         validate.then(function (val) {
+            setEmailBorderColor("white")
             flag = 1
         }
         ).catch(function (err) {
-            Alert.alert("Invalid credentials!!");
+            setEmailBorderColor("red")
             throw err;
         });
     }
@@ -98,16 +106,19 @@ export default function Login({ navigation }: { navigation: any }) {
                 <Text style={styles.text_header}>Welcome!</Text>    
             </View>
             <View style = {styles.inputInfo}>
-            <View style={styles.inputView}>
+            <View style={[styles.inputView, {borderColor:emailBorderColor}]}>
                 <TextInput
                     style={styles.TextInput}
                     placeholder="Email/Phone."
                     placeholderTextColor="#003f5c"
                     onChangeText={(emailOrPhone) => setEmailOrPhone(emailOrPhone)}
                 />
+                
             </View>
+            {emailBorderColor === "red" ? <Text style = {styles.errorMsg}> Invalid Email</Text> : <Text></Text> }
 
-            <View style={styles.inputView}>
+
+            <View style={[styles.inputView, {borderColor:passwordBorderColor}]}>
                 <TextInput
                     style={styles.TextInput}
                     placeholder="Password."
@@ -116,7 +127,10 @@ export default function Login({ navigation }: { navigation: any }) {
                     right={showEye()}
                     onChangeText={(password) => setPassword(password)}
                 />
+               
             </View>
+
+            {passwordBorderColor === "red" ? <Text style = {styles.errorMsg}> Invalid Password</Text> : <Text></Text> }
             </View>
 
             <TouchableOpacity onPress={onPressForgotPassword}>

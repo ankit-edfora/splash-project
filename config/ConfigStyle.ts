@@ -2,6 +2,7 @@ const colors = {
     deepPink : "#FF1493",
     grey : "#CED0CE",
     pink : "#FFC0CB",
+    darkCyan : "#009387"
 }
 
 const dimens = {

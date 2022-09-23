@@ -66,6 +66,7 @@ export const styles = StyleSheet.create({
         height: dimens.forty,
         marginBottom: dimens.twenty,
         alignItems: 'center',
+        borderWidth: 1
     },
     inputInfo: {
         marginTop: dimens.eighty
@@ -77,6 +78,11 @@ export const styles = StyleSheet.create({
         padding: 4,
         marginLeft: dimens.twenty,
 
+    },
+
+    errorMsg : {
+        color:"red", 
+        marginBottom: 20
     },
 
     forgot_button: {
