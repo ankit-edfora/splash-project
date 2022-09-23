@@ -103,34 +103,34 @@ export default function Login({ navigation }: { navigation: any }) {
         <View style={styles.container}>
             <StatusBar backgroundColor='#009387' barStyle="light-content" />
             <View style={styles.header}>
-                <Text style={styles.text_header}>Welcome!</Text>    
+                <Text style={styles.text_header}>Welcome!</Text>
             </View>
-            <View style = {styles.inputInfo}>
-            <View style={[styles.inputView, {borderColor:emailBorderColor}]}>
-                <TextInput
-                    style={styles.TextInput}
-                    placeholder="Email/Phone."
-                    placeholderTextColor="#003f5c"
-                    onChangeText={(emailOrPhone) => setEmailOrPhone(emailOrPhone)}
-                />
-                
-            </View>
-            {emailBorderColor === "red" ? <Text style = {styles.errorMsg}> Invalid Email</Text> : <Text></Text> }
+            <View style={styles.inputInfo}>
+                <View style={[styles.inputView, { borderColor: emailBorderColor }]}>
+                    <TextInput
+                        style={styles.TextInput}
+                        placeholder="Email/Phone."
+                        placeholderTextColor="#003f5c"
+                        onChangeText={(emailOrPhone) => setEmailOrPhone(emailOrPhone)}
+                    />
+
+                </View>
+                {emailBorderColor === "red" ? <Text style={styles.errorMsg}> Invalid Email</Text> : <Text></Text>}
 
 
-            <View style={[styles.inputView, {borderColor:passwordBorderColor}]}>
-                <TextInput
-                    style={styles.TextInput}
-                    placeholder="Password."
-                    placeholderTextColor="#003f5c"
-                    secureTextEntry={showPassword}
-                    right={showEye()}
-                    onChangeText={(password) => setPassword(password)}
-                />
-               
-            </View>
+                <View style={[styles.inputView, { borderColor: passwordBorderColor }]}>
+                    <TextInput
+                        style={styles.TextInput}
+                        placeholder="Password."
+                        placeholderTextColor="#003f5c"
+                        secureTextEntry={showPassword}
+                        right={showEye()}
+                        onChangeText={(password) => setPassword(password)}
+                    />
 
-            {passwordBorderColor === "red" ? <Text style = {styles.errorMsg}> Invalid Password</Text> : <Text></Text> }
+                </View>
+
+                {passwordBorderColor === "red" ? <Text style={styles.errorMsg}> Invalid Password</Text> : <Text></Text>}
             </View>
 
             <TouchableOpacity onPress={onPressForgotPassword}>

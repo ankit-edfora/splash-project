@@ -80,8 +80,8 @@ export const styles = StyleSheet.create({
 
     },
 
-    errorMsg : {
-        color:"red", 
+    errorMsg: {
+        color: "red",
         marginBottom: 20
     },
 
