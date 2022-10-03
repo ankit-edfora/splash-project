@@ -114,5 +114,11 @@ export const styles = StyleSheet.create({
         marginRight: dimens.ten,
         paddingLeft: dimens.ten
     },
+    iconStyle: {
+        width: dimens.twenty, 
+        height: dimens.thirty, 
+        borderWidth: 1, 
+        marginLeft: 300
+    }
 });
 

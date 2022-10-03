@@ -4,12 +4,14 @@ import {
     View,
     TouchableOpacity,
     Alert,
-    StatusBar
+    StatusBar,
+    Image
 } from "react-native";
 import { TextInput } from "react-native-paper";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Int32 } from "react-native/Libraries/Types/CodegenTypes";
 import { styles } from "../styles/Styles";
+import { icons } from "../common/Icons";
 
 
 export default function Login({ navigation }: { navigation: any }) {
@@ -93,12 +95,6 @@ export default function Login({ navigation }: { navigation: any }) {
         }
     });
 
-    const showEye = () => {
-        return (
-            <TextInput.Icon icon={showPassword ? "eye" : "eye-off"}
-                onPress={() => setShowPassword(!showPassword)} />
-        )
-    }
     return (
         <View style={styles.container}>
             <StatusBar backgroundColor='#009387' barStyle="light-content" />
@@ -124,9 +120,12 @@ export default function Login({ navigation }: { navigation: any }) {
                         placeholder="Password."
                         placeholderTextColor="#003f5c"
                         secureTextEntry={showPassword}
-                        right={showEye()}
                         onChangeText={(password) => setPassword(password)}
                     />
+                    <TouchableOpacity 
+                        onPress={() => setShowPassword(!showPassword)} >
+                        <Image source={showPassword ? icons.EYE_CLOSE_ICON : icons.EYE_OPEN_ICON} style={styles.iconStyle} />
+                    </TouchableOpacity>
 
                 </View>
 
